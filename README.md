@@ -2,6 +2,8 @@
 
 Used tech stack: Vite, React, Express, Mysql (with mysql2), Sequelize.
 
+# the project is in progress...
+
 how to run: 
 
 open proj folder,
@@ -25,3 +27,7 @@ npm run dev,
 open localhost:5173 in browser,
 
 enjoy
+
+# what will be added:
+
+mysql connection, 
