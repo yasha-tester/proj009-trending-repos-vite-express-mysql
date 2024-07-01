@@ -6,9 +6,13 @@ Used tech stack: Vite, React, Express, Mysql (with mysql2), Sequelize.
 
 how to run: 
 
+manually create database called "trendingRepos" in mysql
+
+create .env file in "/backend" folder and put there two lines with your mysql password "DB_PWD=[yourPassword]" and your database name "DB_NAME=[yourDatabase name]" (your database will be called trendingRepos if you follow previous step)
+
 open proj folder,
 
-open terminal,
+open terminal in this project folder, then write
 
 cd backend, 
 
@@ -24,10 +28,13 @@ npm install,
 
 npm run dev, 
 
-open localhost:5173 in browser,
+then open localhost:5173 in browser,
 
 enjoy
 
 # what will be added:
 
-mysql connection, 
+creating database list
+graphical interface
+search bar
+force sync button
