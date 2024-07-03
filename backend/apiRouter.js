@@ -30,3 +30,5 @@ apiRouter.post('/', async (req, res, next) => {
         res.sendStatus(400);
     }
 })
+
+module.exports = apiRouter;

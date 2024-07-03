@@ -10,6 +10,8 @@ manually create database called "trendingRepos" in mysql
 
 create .env file in "/backend" folder and put there two lines with your mysql password "DB_PWD=[yourPassword]" and your database name "DB_NAME=[yourDatabase name]" (your database will be called trendingRepos if you follow previous step)
 
+if created database not for root user, then change "user"'s value from "/backend/config.js" file, 
+
 open proj folder,
 
 open terminal in this project folder, then write
