@@ -36,7 +36,7 @@ enjoy
 
 # what will be added:
 
-creating database list
 graphical interface
 search bar
 force sync button
+Promises for repos to fix messed up order when db is lagging a little
