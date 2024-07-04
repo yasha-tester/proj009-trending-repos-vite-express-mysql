@@ -6,7 +6,7 @@ Used tech stack: Vite, React, Express, Mysql (with mysql2), Sequelize.
 
 how to run: 
 
-manually create database called "trendingRepos" in mysql
+manually create database called "trendingRepos" and a table "Repos" inside of it in mysql
 
 create .env file in "/backend" folder and put there two lines with your mysql password "DB_PWD=[yourPassword]" and your database name "DB_NAME=[yourDatabase name]" (your database will be called trendingRepos if you follow previous step)
 

@@ -14,9 +14,9 @@ const Repo = sequelize.define("Repo", {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    desc: {
-        type: DataTypes.STRING,
-        allowNull: false,
+    repo_desc: {
+        type: DataTypes.TEXT,
+        allowNull: true,
     },
     starsCount: {
         type: DataTypes.INTEGER,

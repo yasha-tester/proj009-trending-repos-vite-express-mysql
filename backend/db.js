@@ -21,6 +21,6 @@ const sequelize = new Sequelize(database, user, password, { dialect: 'mysql',
 
 db.sequelize = sequelize;
 
-db.Repo = require("./models/repos.js");
+db.Repo = require("./models/Repo.js");
 
 sequelize.sync();
