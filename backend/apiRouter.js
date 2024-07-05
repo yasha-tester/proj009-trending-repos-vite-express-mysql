@@ -1,7 +1,7 @@
 const express = require("express");
 const apiRouter = express.Router();
 
-const { insertAllRepos, getAllRepos, updateAllRepos, deleteAllRepos } = require("./controller.js");
+const { insertAllRepos, getAllRepos, updateAllRepos, deleteAllRepos, searchAllRepos } = require("./controller.js");
 const Repo = require("./models/Repo");
 const Sequelize = require("sequelize");
 const { FORCE } = require("sequelize/lib/index-hints");
@@ -23,6 +23,19 @@ apiRouter.get('/fs', async (req, res, next) => {
     try{
         const repos = await updateAllRepos();
         res.redirect("/")
+    } catch(e)
+{
+    console.log(e);
+    res.redirect("/");
+}})
+
+apiRouter.get('/search', async (req, res, next) => {``
+    try{
+        const repos = await searchAllRepos(req.query.findRepo);
+        console.log("req sth: ")
+        console.log(req.query.findRepo)
+        res.status(200).json({ repos });
+        // i might put found databases in the middle of markup
     } catch(e)
 {
     console.log(e);

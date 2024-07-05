@@ -1,12 +1,26 @@
+const { Sequelize } = require("sequelize");
 const db = require("./db.js");
+const Op = Sequelize.Op;
 
 const Repo = db.Repo;
 module.exports = {
-    insertAllRepos, getAllRepos, updateAllRepos, deleteAllRepos
+    insertAllRepos, getAllRepos, updateAllRepos, deleteAllRepos, searchAllRepos
 };
 
 async function insertAllRepos(){
     
+}
+
+async function searchAllRepos(input){
+    const repos = await Repo.findAll({
+        where: {
+            [Op.or]: [
+                { name: { [Op.like]: `%${input}%` } },
+                { id: { [Op.like]: `%${input}%` } },
+            ],
+        }
+    })
+    return repos;
 }
 
 async function getAllRepos(){
