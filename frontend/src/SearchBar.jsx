@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-function App() {
+function SearchBar() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
@@ -10,10 +10,10 @@ function App() {
   }, []);
   return (
     <>
- <p>Hello App!</p>
+ <p>Hello Search Bar</p>
  <p>{message}</p>
     </>
   )
 }
 
-export default App
+export default SearchBar

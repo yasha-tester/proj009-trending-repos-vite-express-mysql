@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-function App() {
+function ForceSync() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
@@ -10,10 +10,10 @@ function App() {
   }, []);
   return (
     <>
- <p>Hello App!</p>
+    <a href='/apiRouter/fs'>Hello ForceSync</a>
  <p>{message}</p>
     </>
   )
 }
 
-export default App
+export default ForceSync

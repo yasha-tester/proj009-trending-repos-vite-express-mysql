@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-
+import "./style.css"
 function RepoList() {
   const [message, setMessage] = useState('');
 
@@ -7,29 +7,26 @@ function RepoList() {
     fetch('/apiRouter')
     .then(res => res.json())
     .then(data => {
+
+      let dataObject = [];
         // maybe i should do it in different React function?
-        setMessage(data.repos.map((repo) => {
-            return <div className='repoBlock'>
-    <p>name: {data.repos[repo]["name"]}</p>
-    <p>description: {data.repos[repo]["repo_desc"]}</p>
-    <p>stars: {data.repos[repo]["starsCount"]}</p>
-    <p>place: {data.repos[repo]["place"]}</p>
-</div>
-            
-        }))
-        console.log(data.repos[0])
+        data.repos.forEach((item) => {
+
+          dataObject.push(
+<div className='repoBlock'>
+    <p>name: {item["name"]}</p>
+    <p>description: {item["repo_desc"]}</p>
+    <p>stars: {item["starsCount"]}</p>
+    <p>place: {item["place"]}</p>
+</div>)})
+
+        setMessage(dataObject)
     })
   }, []);
   return (
     <>
  <h2>my message is below:</h2>
  <p>{message}</p>
-{/* <div className='repoBlock'>
-    <p>name: {message}</p>
-    <p>description: {"desc"}</p>
-    <p>stars: {"starsCount"}</p>
-    <p>place: {"place"}</p>
-</div> */}
     </>
   )
 }

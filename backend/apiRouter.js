@@ -19,6 +19,16 @@ apiRouter.get('/', async (req, res, next) => {
     res.sendStatus(500);
 }})
 
+apiRouter.get('/fs', async (req, res, next) => {
+    try{
+        const repos = await updateAllRepos();
+        res.redirect("/")
+    } catch(e)
+{
+    console.log(e);
+    res.redirect("/");
+}})
+
 apiRouter.get('/weekly', async (req, res, next) => {
     try{
         fetch('https://github.com/trending?since=weekly&spoken_language_code=')
