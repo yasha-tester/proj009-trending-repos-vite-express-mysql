@@ -9,13 +9,18 @@ function SearchBar() {
   }, []);
   return (
     <>
- {/* <p>Hello Search Bar</p> */}
+
+      {/* <p>Hello Search Bar</p> */}
  <form action='/apiRouter/search'>
  <input type='search' name="findRepo" placeholder='Hello Search Bar..'/>
  <input type='submit' value="search"/>
  {/* i want to remember what to do here */}
  </form>
+
+ <p>Search results:</p>
+ {/* {<p>{message}</p> && condList } */}
  <p>{message}</p>
+
     </>
   )
 }

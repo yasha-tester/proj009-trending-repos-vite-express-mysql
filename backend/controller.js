@@ -4,9 +4,10 @@ const Op = Sequelize.Op;
 
 const Repo = db.Repo;
 module.exports = {
-    insertAllRepos, getAllRepos, updateAllRepos, deleteAllRepos, searchAllRepos
+    insertAllRepos, getAllRepos, updateAllRepos, searchAllRepos
 };
 
+// i may use it for first getAllRepos when you just make it to the world
 async function insertAllRepos(){
     
 }
@@ -59,8 +60,4 @@ async function updateAllRepos(){
     } catch(e){
         console.log(e);
     }
-}
-
-async function deleteAllRepos(){
-await employee.destroyAll();
 }

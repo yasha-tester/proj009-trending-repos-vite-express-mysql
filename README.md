@@ -63,8 +63,9 @@ enjoy
 Promises for repos to fix messed up order when db is lagging a little;
 
 also:
-search bar,
+normal searchlist,
 timer indicator,
+optional time range of creation of searched repositories,
 refactored GUI
 
 and also most probably: 
