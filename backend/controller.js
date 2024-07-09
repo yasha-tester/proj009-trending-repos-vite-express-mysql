@@ -1,7 +1,7 @@
 const { Sequelize } = require("sequelize");
 const db = require("./db.js");
 const Op = Sequelize.Op;
-
+let searched = false;
 const Repo = db.Repo;
 module.exports = {
     insertAllRepos, getAllRepos, updateAllRepos, searchAllRepos
@@ -21,6 +21,7 @@ async function searchAllRepos(input){
             ],
         }
     })
+    searched = true;
     return repos;
 }
 

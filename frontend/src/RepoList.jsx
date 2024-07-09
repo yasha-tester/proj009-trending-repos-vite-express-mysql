@@ -1,7 +1,22 @@
 import { useEffect, useState } from 'react'
 import "./style.css"
 function RepoList() {
-  const [message, setMessage] = useState('');
+  const [searchItem, setSearchItem] = useState('');
+  const [itemObject, setItemObject] = useState([]);
+  const [repoList, setRepoList] = useState('');
+
+  const handleInputChange = (e) => {
+    const searchTerm = e.target.value;
+    setSearchItem(searchTerm);
+
+  const filteredItems = itemObject.filter((item) => {
+    return item["name"].toLowerCase().includes(searchTerm.toLowerCase())
+
+    // console.log(item["name"].toLowerCase().includes(searchItem.toLowerCase()))
+  })
+
+    setRepoList(filteredItems);
+  }
 
   useEffect(() => {
     fetch('/apiRouter')
@@ -9,24 +24,44 @@ function RepoList() {
     .then(data => {
 
       let dataObject = [];
-        // maybe i should do it in different React function?
+
         data.repos.forEach((item) => {
+          dataObject.push({
+            name: item["name"],
+            description: item["repo_desc"],
+            stars: item["starsCount"],
+            place: item["place"]
+          })
+        })
+        
+        setItemObject(dataObject);
+        console.log(dataObject)
+      }, []);
+      }, [])
 
-          dataObject.push(
-<div className='repoBlock'>
-    <p>name: {item["name"]}</p>
-    <p>description: {item["repo_desc"]}</p>
-    <p>stars: {item["starsCount"]}</p>
-    <p>place: {item["place"]}</p>
-</div>)})
-
-        setMessage(dataObject)
-    })
-  }, []);
   return (
     <>
- <h2>my message is below:</h2>
- <p>{message}</p>
+ <input type='text' value={searchItem} onChange={handleInputChange} placeholder='Hello Search Bar..'/>
+
+ {/* list of repositories */}
+  {repoList && repoList.map(item => 
+ <div className='repoBlock'>
+      <p>name: {item["name"]}</p>
+      <p>description: {item["description"]}</p>
+      <p>stars: {item["stars"]}</p>
+      <p>place: {item["place"]}</p>
+  </div>) 
+  || 
+  itemObject.map(item => 
+    <div className='repoBlock'>
+         <p>name: {item["name"]}</p>
+         <p>description: {item["description"]}</p>
+         <p>stars: {item["stars"]}</p>
+         <p>place: {item["place"]}</p>
+     </div>) 
+  ||
+  <p>No repositories found!</p>
+  }
     </>
   )
 }

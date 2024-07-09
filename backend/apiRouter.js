@@ -6,6 +6,22 @@ const Repo = require("./models/Repo");
 const Sequelize = require("sequelize");
 const { FORCE } = require("sequelize/lib/index-hints");
 
+// it might be of help when creating separate api
+// apiRouter.get('/search', async (req, res, next) => {
+//     try{
+
+//         const repos = await searchAllRepos(req.body);
+//         console.log("req sth: ")
+//         console.log(req.body)
+
+//     req.searchedData =  repos;
+//     next()
+//                  // i want to put found databases in the middle of markup
+//     } catch(e)
+// {
+//     console.log(e);
+//     res.status(400);
+// }})
 
 // Get all Repos
 apiRouter.get('/', async (req, res, next) => {
@@ -28,18 +44,11 @@ apiRouter.get('/fs', async (req, res, next) => {
     res.redirect("/");
 }})
 
-apiRouter.get('/search', async (req, res, next) => {
-    try{
-        const repos = await searchAllRepos(req.query.findRepo);
-        console.log("req sth: ")
-        console.log(req.query.findRepo)
-        let condList = true;
-        res.status(200).json({ repos });
-        // i might put found databases in the middle of markup
-    } catch(e)
-{
-    console.log(e);
-    res.redirect("/");
-}})
+
+
+
+// apiRouter.get('/search', (req, res, next) => {
+//     res.redirect("/")
+// })
 
 module.exports = apiRouter;
